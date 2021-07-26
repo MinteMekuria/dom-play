@@ -1,1 +1,60 @@
-<h1>DOM Play</h1>
+<html>
+    <head>
+        <style type="text/css">
+            body {background-color: powderblue;}
+            h1 {
+              color: blue;
+              font-family: 'Times New Roman', Times, serif;
+              font-size: 150%;
+              font-style: italic;
+              
+        </style>
+      </head>
+<body>
+   <h1>DOM Play</h1>
+   <h1>Alderona is a scripted scifi scene for two teenagers, 1 guy and 1 girl.  ALDERONA and KLUDO brother/sister have secret powers meant to protect and save people’s lives.  
+       Alderona is doubting her ability to carry out her responsibility and she discusses the issue with her brother:</h1>
+ <div id="play">  
+<p><span data-actor="alderona">Alderona:  I do not know how to tell father that I no longer wish to hold onto my spirit power.</span></p>
+<p><span data-actor="kludo">Kludo: Whatever do you mean?</span></p>
+<p><span data-actor="alderona">Alderona: I do not want this, this gift as it’s called.</span></p>
+<p><span data-actor="kludo">Kludo: Alderona, give it time…I have also gone through a difficult time with mine.</span></p>
+<p><span data-actor="alderona">Alderona: I don’t want it, Kludo, I’ve thought about it.</span></p>
+<p><span data-actor="kludo">Kludo: Have you already made your decision, Alderona?</span></p>
+<p><span data-actor="alderona">Alderona: I believe I have.</span></p>
+<p><span data-actor="kludo">Kludo: Have you spoken to anyone else about this?</span></p>
+<p><span data-actor="alderona">Alderona: No!</span></p>
+<p><span data-actor="dad">Dad: Hi guys, I heard it all! Alderona, Give it time.  Please. For me, give it time. I will support you but you must be sure before making such a decision!</span></p>
+</div>
+   <script>
+
+//we're using the CSS descendent selector to access the spans
+const spans = document.querySelectorAll('div#play span');        
+
+console.log(spans);
+
+for(const mySpan of spans){
+    mySpan.addEventListener("click",function(ev){
+         //alert(mySpan.dataset.actor);
+
+         highlightActor(mySpan.dataset.actor);
+         
+    });
+}
+
+
+      function highlightActor(myActor){
+
+        for(const mySpan of spans){
+
+          if(myActor == mySpan.dataset.actor){
+             mySpan.style.backgroundColor = 'yellow';
+          }else{
+            mySpan.style.backgroundColor = 'white';
+          }
+        }       
+          
+      }
+   </script>
+</body>
+</html>
